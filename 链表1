@@ -1,0 +1,39 @@
+线性 顺序表
+public class ArrayList{
+int size = 0;
+int[] array = new int[10];      //顺序表储存的是int类型的元素
+                                //理论上支持保存任意类型的数据
+//增删改查
+
+//将element插入到index所在的下标出
+//要求，对index做合法性校验
+public void insert(int index,int element){
+}
+}
+//删除index下标出处的元素，要求也对index、做合法性校验
+public void erase(int index){....}
+
+链表
+1.逻辑上有前后顺序
+2.不保证逻辑前后顺序的元素挨着
+
+遍历链表(完整遍历)
+for(Node cur = head;cur!= null;cur = cur.next){}
+Node cur = head;
+while(cur!= null){cur = cur}
+
+增
+头插(){
+newNode = 创建结点(100);
+newNode.next = head;
+更新head指向100；
+}
+空链表：一个结点都没有的链表
+通过首结点表示一个链表  Node head = null；
+1.申请新结点
+2.新结点.next=原第一个结点
+3.更新第一个结点为新结点
+
+尾插
+1.链表为空 视为头插
+2.链表不为空；申请新结点；找到原最后一个结点；更新原最后一个结点.next为新结点
