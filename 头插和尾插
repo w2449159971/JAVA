@@ -1,0 +1,46 @@
+public class getLast{
+	public static Node getLast(Node head){
+		Node cur = head;
+		while(cur.next!=null){
+			cur = cur.next;
+		}
+		return cur; 
+	}
+	public int value;
+	public Node next = null;
+	public Node = value;
+}
+public static void display(Node head){
+	for(Node cur = head;cur != null;cur = cur.next)
+	{
+	System.out.printf("%d-->",cur.value);	
+	}
+	System.out.println("null");
+}
+public static Node pushFront(Node head,int value){
+	Node newnode = new Node(value);
+	newnode.next = head;
+	return newnode;
+}
+public static Node pushBack(Node head,int value){
+    if(head.next == null){
+		return pushFront(head.value);
+	}
+	else{
+		Node newnode = new Node(value);
+		Node last = getLast(head);
+		last.next = newnode;
+		return head;
+	}
+}
+static void main(String[] args){
+	Node head = null;
+	head = pushBack(head,1);
+	head = pushBack(head,2);
+	head = pushBack(head,3);
+	display(head);   //1-->2-->3-->null 
+	head = pushFront(head,10);
+	head = pushFront(head,20);
+	head = pushFront(head,30);
+	display(head);   //30-->20-->10-->1-->2-->3-->null
+}
