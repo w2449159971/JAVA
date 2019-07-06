@@ -1,0 +1,89 @@
+最小费用购物问题问题描述：商店中买个商品都有标价.例如一朵花的价格是2元,一个花瓶的价格是5元.为了吸引顾客,商店提供了一组商品优惠价.优惠商品是把一种或多种商品分成一组,并降价销售.例如,3朵花的价格不是6元而是5元.2个花瓶加1朵花得优惠价是10元.
+会用三个自定义函数来分别实现商品编码、价格、需求数量和优惠方案的初始化，计算商品所付的最小费用，递归计算.
+
+定义常量和变量:
+#define maxb 100//所购的每种商品的数量(0<=B<=30)
+#define maxs 100//优惠商品种类数(0<=S<=99)
+int purch[maxb][2];//存放预购商品数据
+int offer[maxs][maxb];//存放优惠商品价数据
+int product[maxb];
+int num[1000];
+int cost[maxb][maxb][maxb];
+int b, s;//b件商品，s种组合
+其中cost是一个三维数组,它给定了商品种类数最多是3,具体的商品种类数可在void init()函数中从键盘接收.
+
+初始化:
+void init()
+{
+	int i, j, k;
+	int code, t, p;//code表编号，t表示优惠商品组合
+	memset(offer, 0, sizeof(offer));
+	memset(purch, 0, sizeof(purch));
+	memset(product, 0, sizeof(product));
+	printf("请输入商品件数:\n");
+	scanf("%d", &b);
+	printf("请输入商品的编号,数量,单价:\n");
+	for (i = 1; i <= b; i++)
+	{
+		scanf("%d %d %d", &code, &purch[i][0], &purch[i][1]);//code表示商品的编码；存放购买该种商品的总数；该商品的正常单价
+		num[code] = i;//商品的编号num[2]=1,num[8]=2
+	}
+	printf("请输入优惠组合数目:\n");
+	scanf("%d", &s);
+	printf("请输入优惠组合中商品的种类数,编号,数量,优惠后的价格:\n");
+	for (i = 1; i <= s; i++)
+	{
+		scanf("%d", &t);
+		for (j = 1; j <= t; j++)
+		{
+			scanf("%d %d", &code, &p);
+			offer[i][num[code]] = p;//第i种优惠组合中编号为code的商品的数量 
+		}
+		scanf("%d", &offer[i][0]);//利用0下标存第i种优惠组合的总价格 
+	}
+}
+ 初始化主要实现的是从键盘接收你需要物品的数量和它的单价,以及优惠价格,在这个函数中你所需要购买的商品种类、优惠政策可以不单单是问题描述中的那两种,你可以从键盘输入.其中商品种类为b,优惠方案数位t,都是可以自己定义实现的.
+
+最少花费的相关计算:
+void mincost()
+{
+	int i, min;
+	int A, B, C=;
+	min = 0;
+	for (i = 1; i <= b; i++)
+	{
+		min = min + (product[i] * purch[i][1]);//正常单价购买
+	}
+	//遍历S种优惠组合 
+	for (i = 1; i <= s; i++)
+	{    //五种产品减去采用优惠组合的数量
+		A = product[1] - offer[i][1];
+		B = product[2] - offer[i][2];
+		C = product[3] - offer[i][3]；
+		if (A >= 0 && B >= 0 && C >= 0&& min>(cost[A][B][C] + offer[i][0]))
+		{
+			min = cost[A][B][C] + offer[i][0];
+		}
+	}
+
+	cost[product[1]][product[2]][product[3]] = min;
+}
+A是指你所需要的第一种商品数量减去优惠方案中该商品的数量.
+if语句是把正常价格购买的商品价格和优惠后的商品价格做比较,找出最少价格.当你购买的商品满足两种优惠方案但只能选一种时,可以比较出最优惠的方案.
+
+递归调用:
+void dp(int i)
+{
+	int j;
+	if (i>b){
+		mincost();
+		return;
+}
+	for (j = 0; j <= purch[i][0]; j++)
+	{
+		product[i] = j;
+		dp(i + 1);
+	}
+}
+递归调用主要是把你需要购买的商品数一件一件的放进去,每放一件就会进入到void mincost()函数中去寻找有没有满足某种优惠方案,每次找出最小的值进行比较,最后得到最少花费.
+
