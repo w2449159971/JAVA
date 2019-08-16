@@ -1,0 +1,83 @@
+class Node{
+	public int val;
+	public Node next = null;
+	public Node(int val){
+		this.val = val;
+}} 
+public class Merge{
+		public static Node merge(Node head1,Node head2){
+			//1.分别遍历两个链表，取值比较小的结点，尾插到新链表中
+			//2.把剩余链表接到新链表中
+			Node c1 = head1;
+			Node c2 = head2;
+			Node rhead = null;
+			Node rlast = null;
+		if(head1==null){
+			return head1;
+		}
+		if(head2==null){  
+			return head2;
+		}
+		while(c1!= null && c2!= null){
+			//取比较小的结点
+			if(c1.val <= c2.val){
+				//把c1尾插到新链表
+				//如果链表没有结点，更新链表的第一个结点
+				//否则，找到链表的最后一个结点，让它的next=要插入的结点
+			if(rhead == null){
+				rhead = c1;
+			}else{
+				rlast.next = c1;
+			}
+			rlast = c1;
+			c1 = c1.next;
+		}else{
+			if(rhead == null){
+				rhead = c2;
+			}else{
+				rlast.next = c2;
+			}
+			rlast = c2;
+			c2 = c2.next;
+		}
+}
+		if(c1 != null){
+			rlast.next = c1;
+		}else{
+			rlast.next = c2;
+		}
+		return rhead;
+		}
+		private static Node createOrderList1(){
+		Node n1 = new Node(0);
+		Node n2 = new Node(2);
+		Node n3 = new Node(4);
+		Node n4 = new Node(6);
+		n1.next = n2;
+		n2.next = n3;
+		n3.next = n4;
+		n4.next = null;
+		return n1;
+		}
+		private static Node createOrderList2(){
+        Node c1 = new Node(1);
+		Node c2 = new Node(3);
+		Node c3 = new Node(5);
+		Node c4 = new Node(7);
+		c1.next = c2;
+		c2.next = c3;
+		c3.next = c4;
+		c4.next = null;	
+		return c1;
+		}
+
+
+public static void main(String args[]){
+	    Node head1 = createOrderList1();
+		Node head2 = createOrderList2();
+		Node rhead = merge(head1,head2);
+		for(Node c = rhead;c!= null;c = c.next){
+		System.out.printf("(%d)-->",c.val);
+		}
+	}
+}
