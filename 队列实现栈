@@ -1,0 +1,52 @@
+import java.util.*;
+
+//用一个队列（先进先出）实现栈（后进后出）
+public class MyStack {
+
+    /** Initialize your data structure here. */
+
+        private Queue<Integer>queue = new LinkedList<>();
+
+
+    /** Push element x onto stack. */
+    public void push(int x) {
+        queue.add(x);
+    }
+
+    /** Removes the element on top of the stack and returns that element. */
+    public int pop() {
+        //先把size-1个数处理
+        if (queue != null) {
+            for (int i = 0; i < queue.size() - 1; i++) {
+                int v = queue.poll();
+                queue.add(v);//简写成一步 queue.add(queue.poll());
+            }
+        }
+            return queue.poll();
+    }
+
+    /** Get the top element. */
+   public int top() {
+        int size = queue.size();
+        for (int i= 0;i < size - 1;i++){
+            queue.add(queue.poll());
+        }
+        return queue.poll();
+    }
+
+    /** Returns whether the stack is empty. */
+    boolean empty() {
+        return queue.isEmpty();
+    }
+
+    public static void main(String[] args) {
+        Stack stack = new Stack();
+
+        stack.push(4);
+        stack.push(5);
+        stack.push(7);
+        System.out.println(stack.pop());
+        stack.push(9);
+        System.out.println(stack);
+    }
+}
