@@ -1,0 +1,70 @@
+class Node{
+    char value;
+    Node left = null;
+    Node right = null;
+
+public Node(char value){
+    this.value = value;
+}
+
+}
+public class OrderTraversal {
+    public static Node buildTree(){
+        Node a = new Node('A');
+        Node b = new Node('B');
+        Node c = new Node('C');
+        Node d = new Node('D');
+        Node e = new Node('E');
+        Node f = new Node('F');
+        Node g = new Node('G');
+        Node h = new Node('H');
+
+        a.left = b;
+        b.left = d;
+        b.right = f;
+        d.left = e;
+        a.right = c;
+        c.left = g;
+        g.right = h;
+        return a;
+    }
+
+    public static void preOrderTraversal(Node root){
+        if(root == null){
+            return;
+        }
+        //根 + 左子树 +右子树
+        System.out.print(root.value);
+        preOrderTraversal(root.left);
+        preOrderTraversal(root.right);
+    }
+
+    public static void inOrderTraversal(Node root) {
+        if (root == null) {
+            return;
+        }
+        //左子树 + 根 +右子树
+        inOrderTraversal(root.left);
+        System.out.print(root.value);
+        inOrderTraversal(root.right);
+    }
+
+    public static void postOrderTraversal(Node root){
+        if(root == null){
+            return;
+        }
+        //左子树 +右子树 + 根
+        preOrderTraversal(root.left);
+        preOrderTraversal(root.right);
+        System.out.print(root.value);
+
+    }
+    public static void main(String[] args) {
+        System.out.println("该树的先序遍历为");
+        preOrderTraversal(buildTree());
+        System.out.println("\n该树的中序遍历为");
+        inOrderTraversal(buildTree());
+        System.out.println("\n该树的后序遍历为");
+        postOrderTraversal(buildTree());
+    }
+}
