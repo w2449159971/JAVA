@@ -1,0 +1,194 @@
+class Node{
+    char val;
+    Node left = null;
+    Node right = null;
+    public Node(char value){
+        this.val = val;
+    }
+}
+
+
+public class BinaryTree{
+    //建立一棵树
+    public static Node buildTree1(){
+        Node a = new Node('A');
+        Node b = new Node('B');
+        Node c = new Node('C');
+        Node d = new Node('D');
+        Node e = new Node('E');
+        Node f = new Node('F');
+        a.left = b;
+        b.right = c;
+        c.left = d;
+        a.right = e;
+        e.right = f;
+        return a;
+    }
+    public static Node buildTree2(){
+        Node a = new Node('A');
+        Node b = new Node('B');
+        Node c = new Node('C');
+        Node d = new Node('D');
+        Node e = new Node('E');
+        Node f = new Node('F');
+        a.left = b;
+        b.right = c;
+        c.left = d;
+        a.right = e;
+        e.right = f;
+        return a;
+    }
+    public static Node buildTree3(){
+        Node a = new Node('A');
+        Node b = new Node('B');
+        Node c = new Node('C');
+        Node d = new Node('D');
+        Node e = new Node('E');
+        Node f = new Node('F');
+        a.left = e;
+        a.right = b;
+        e.left = f;
+        b.left = c;
+        c.right = d;
+        return a;
+    }
+    public static Node buildTree4(){
+        Node b = new Node('B');
+        Node c = new Node('C');
+        Node d = new Node('D');
+        b.right = c;
+        c.left = d;
+        return b;
+    }
+    //计算结点数 两种方法caleCount
+    public static int count = 0;
+    public static int caleCount(Node root){
+        if(root == null){
+            return 0;
+        }
+        caleCount(root.left);
+        caleCount(root.right);
+        ++count;
+        return count;
+    }
+    public static int caleCount2(Node root){
+        int count2 = 0;
+        if(root == null){
+            return 0;
+        }
+        int left = caleCount2(root.left);
+        int right = caleCount2(root.right);
+        count2 = left + right + 1;
+        return count2;
+    }
+    //计算叶子数 方法caleLeafCount
+    public static int calcLeafCount(Node root) {
+        if (root == null) {
+            return 0;
+        }
+        // 代表只有一个结点的树
+        if (root.left == null && root.right == null) {
+            return 1;
+        }
+
+        int left = calcLeafCount(root.left);
+        int right = calcLeafCount(root.right);
+        return left + right;
+    }
+    //计算层数
+    public static int treeHeight(Node root){
+        if(root == null){
+            return 0;
+        }
+        int left = treeHeight(root.left);
+        int right = treeHeight(root.right);
+        return ((left>right)?left:right)+1;
+    }
+    //计算第k层有多少个结点
+    public static int treeKHeight(Node root,int k){
+        if(root == null){
+            return 0;
+        }
+        if(k == 1){
+            return 1;
+        }
+        int left = treeKHeight(root.left,k-1);
+        int right = treeKHeight(root.right,k-1);
+        return left+right;
+    }
+    //找一个结点是不是在树里
+    public static boolean search(Node root,char k) {
+        if (root == null) {
+            return false;
+        }
+        if (root.val == k) {
+            return true;
+        }
+            return search(root.right, k)||search(root.right,k);
+    }
+    public static Node search2(Node root, char val) {
+        if (root == null) {
+            return null;
+        }
+        if (root.val == val) {
+            return root;
+        }
+        Node left = search2(root.left, val);
+        if (left != null) {
+            return left;
+        }
+        Node right = search2(root.right, val);
+        if (right != null) {
+            return right;
+        }
+        return null;
+    }
+
+    //判断两个二叉树是不是镜像对称
+    public static boolean isMirror(Node root1,Node root2){
+        if(root1 == null && root2 == null){
+            return true;
+        }
+        if(root1 == null || root2 == null){
+            return false;
+        }
+
+        return root1.val==root2.val&&isMirror(root1.left,root2.right)&&isMirror(root1.right,root2.left);
+    }
+    //判断两棵树是否相同
+    public static boolean isSame(Node root1,Node root2){
+        if(root1 == null && root2== null) {
+            return true;
+        }
+        if(root1 == null || root2 == null){
+            return false;
+        }
+        return root1.val == root2.val && isSame(root1.left,root2.left)&&isSame(root1.right,root2.right);
+
+    }
+    //判断树一是不是树二的子树
+    public static boolean childTree(Node rootPrant,Node rootChild){
+        if(rootPrant == null ||rootChild == null){
+            return false;
+        }
+        while (search(rootPrant,rootChild.val)) {
+            Node newTree = search2(rootPrant,rootChild.val);
+            isSame(rootChild,newTree);
+            return true;
+        }
+        return false;
+    }
+    public static void main(String[] args) {
+        System.out.println(caleCount(buildTree1()));
+        System.out.println(caleCount2(buildTree1()));
+        System.out.println(calcLeafCount(buildTree1()));
+        System.out.println(treeHeight(buildTree1()));
+        System.out.println(treeKHeight(buildTree1(),3));
+        System.out.println(search(buildTree1(),'B'));
+        Node n  = search2(buildTree1(),'A');
+        System.out.println(n);
+        System.out.println(isMirror(buildTree1(),buildTree3()));
+        System.out.println(isSame(buildTree1(),buildTree2()));
+        System.out.println(childTree(buildTree1(),buildTree4()));
+    }
+}
