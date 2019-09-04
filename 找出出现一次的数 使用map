@@ -1,0 +1,15 @@
+public static void test(int []number) {
+        //Map<Integer, Integer> count(int[] numbers){
+            Map<Integer, Integer> map = new HashMap<>();
+            for (int n : number) {
+                //判断n在不在map中，不在出现次数1，在，出现次数加1
+                int c = map.getOrDefault(n, 0);
+                map.put(n, c + 1);
+            }
+            for (Map.Entry<Integer, Integer> entry : map.entrySet()) {
+                int number1 = entry.getKey();
+                int count1 = entry.getValue();
+                if (count1 == 1) {
+                    System.out.println(number1);
+                }
+            }
