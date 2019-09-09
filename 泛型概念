@@ -1,0 +1,39 @@
+实现一个接口
+  Comparable<E>
+1.让Person实现该接口      Comparable<People>
+2.覆写compareTo(Peopson o);
+         该方法返回  <0     this比较小
+         该方法返回==0     相等
+         该方法返回   >0     o比较小
+引入另一个接口Comparator<E>    比较器
+
+对象的比较
+
+覆写Object.equals                     比较两个对象是否相等
+
+实现Comparable 接口                比较两个对象的自然的大小关系
+
+定义一个比较器      
+
+泛型类型擦除问题
+1.已知泛型使工作在编译期间的一种机制
+2.编译器javac在编译期间，将E变换成一种具体的类型---类型擦出
+3.定义的边界
+      class MyArrayList<E exends integer>{
+}    
+      E只能接受integer类型子类型（包括integer本身）
+泛型的父类和子类的问题 
+泛型用在使用泛型类（泛型方法中） 通配符
+
+泛型：
+1.了解泛型类的使用
+2.了解泛型方法的使用
+3.掌握泛型是编译期间的机制，和运行时无关
+
+1.java中对象的比较相关的三个方法
+Object.equals                              相等还是不相等
+Comparable.compareTo              比较（内部比较，自然顺序）
+Comparator.compare                  比较（外部比较，基于比较器）
+2.如何定义一个泛型类
+     了解在定义时，出现在尖括号里的，是类型变量，并且定义时是形参
+      <E extends 接口/类>
