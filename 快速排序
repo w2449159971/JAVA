@@ -1,0 +1,33 @@
+ public static void quickSort(int[] array) {
+        quickSortInternal(array, 0, array.length - 1);
+    }
+
+    public static void quickSortInternal(int array[], int left, int right) {
+        if(left >= right){
+            return;
+        }
+        int pivotlndex = partition(array,left,right);
+        quickSortInternal(array,left,pivotlndex - 1);
+        quickSortInternal(array,pivotlndex + 1, right);
+    }
+    private static int partition(int array[], int left, int right) {
+        int pivot = array[right];
+        int great = right;
+        int less = left;
+        while (less < great) {
+            while (less < great && array[less] <= pivot) {
+                less++;
+            }
+            while (less < great && array[great] >= pivot){
+                great--;
+            }
+            swap(array,less,great);
+        }
+        swap(array,right,less);
+        return less;
+    }
+    public static void swap(int array[],int a,int b){
+        int tmp = array[a];
+        array[a] = array[b];
+        array[b] = tmp;
+    }
