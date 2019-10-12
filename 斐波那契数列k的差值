@@ -1,0 +1,31 @@
+
+import java.util.Scanner;
+
+public class FibonacciNum {
+public static int test1(int k){
+        int a = 0;
+        int b = 1;
+        int pre = 0;
+        int post = 0;
+        int min = 0;
+        for(int i = 0; i <= k; i++){
+        post = a+b;
+        a = b;
+        b = post;
+        pre = a;
+        if( post > k){
+        min = k - pre;
+        if(post - k < min){
+        min = post -k;
+        }
+        break; 
+        }
+        }
+        return min;
+        }
+public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        System.out.println(test1(n));
+        }
+        }
