@@ -7,7 +7,6 @@ class Node {
         this.val = val;
     }
 }
-
 public class Review {
     private static Node separate(Node head, int x) {
         // 难度：尾插
