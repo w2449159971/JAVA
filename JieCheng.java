@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class JieCheng {
+    public static int ZeroCount(int n){
+        int count = 0;
+        for(int i= 1; i < n; i++){
+            n/=5;
+            count+=n;
+        }
+        return count;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+        System.out.println(ZeroCount(n));
+    }
+}
