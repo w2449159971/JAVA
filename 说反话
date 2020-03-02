@@ -1,0 +1,15 @@
+import java.util.Scanner;
+
+public class Frist_0302 {
+    public static void test(String s){
+            String array[] = s.split(" ");
+            for (int i = array.length-1; i >= 0; i--){
+                System.out.print(array[i]+" ");
+            }
+        }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        test(s);
+    }
+}
