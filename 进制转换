@@ -1,0 +1,12 @@
+ public static int JingzhiChange(int a){
+     int number = 0;
+     int b = 0;
+     int i = 0;
+     while( a > 0){
+         b = a%10;
+         number += b*Math.pow(16,i);
+         a = (a-b)/10;
+         i++;
+     }
+     return number;
+ }
