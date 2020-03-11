@@ -11,3 +11,6 @@ public class Week {
         System.out.println(gender);
     }
 }
+
+
+
