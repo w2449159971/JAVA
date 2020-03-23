@@ -1,5 +1,6 @@
 import java.util.Scanner;
 
+
 public class Rabbit {
 
     public static void main(String[] args) {
@@ -7,6 +8,7 @@ public class Rabbit {
         int month = scanner.nextInt();
         System.out.println(rabbit(month));
     }
+
 
     public static int rabbit(int month){
         if(month < 3) {
@@ -17,3 +19,4 @@ public class Rabbit {
 
     }
 }
+
