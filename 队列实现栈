@@ -1,5 +1,6 @@
 import java.util.*;
 
+
 //用一个队列（先进先出）实现栈（后进后出）
 public class MyStack {
 
@@ -25,6 +26,7 @@ public class MyStack {
             return queue.poll();
     }
 
+
     /** Get the top element. */
    public int top() {
         int size = queue.size();
@@ -38,6 +40,7 @@ public class MyStack {
     boolean empty() {
         return queue.isEmpty();
     }
+
 
     public static void main(String[] args) {
         Stack stack = new Stack();
