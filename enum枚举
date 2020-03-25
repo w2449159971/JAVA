@@ -1,0 +1,16 @@
+enum向枚举中添加新方法
+如果打算自定义自己的方法，那么必须在enum实例序列的最后添加一个分号。而且 Java 要求必须先定义 enum 实例。
+
+//enum是Enum类的子类
+enum week{
+    Monday,tuersday,wensday,thurday,friday,saturday,sunday;
+}
+public class Week {
+    public static void main(String[] args) {
+        week gender = week.friday;
+        System.out.println(gender);
+    }
+}
+
+
+

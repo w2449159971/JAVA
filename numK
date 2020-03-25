@@ -1,0 +1,28 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class numK {
+    public static void rotate(int []nums, int k){
+        int [] a = new int[nums.length];
+        for(int i = 0; i < nums.length; i++ ){
+            a[(i + k) % nums.length] = nums[i];
+        }
+        for (int i = 0; i < nums.length; i++) {
+            nums[i] = a[i];
+        }
+        System.out.println(Arrays.toString(a));
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("请输入数组用逗号隔开");
+        String str = scanner.nextLine();
+        String [] Arrays = str.split(",");
+        int [] a = new int[Arrays.length];
+        for(int i=0; i < a.length; i++){
+            a[i] = Integer.parseInt(Arrays[i]);
+        }
+        System.out.println("请输入k的值");
+        int k = scanner.nextInt();
+        rotate(a,k);
+    }
+}

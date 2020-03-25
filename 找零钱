@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class First_0303 {
+    public static void main(String[] args){
+        Scanner sc=new Scanner(System.in);
+        int[] a=new int[3];
+        int[] b=new int[3];
+        String[] s=sc.next().split("\\.");
+        String[] s1=sc.next().split("\\.");
+        for(int i = 0; i<3; i++){
+            b[i]=Integer.parseInt(s[i]);
+        }
+        for(int i = 0; i<3; i++){
+            a[i]=Integer.parseInt(s1[i]);
+        }
+        int m=b[0]*29*17+b[1]*17+b[2];
+        int n=a[0]*29*17+a[1]*17+a[2];
+        int[] result=new int[3];
+        int tag=0;
+        if(m>n){
+            int temp;
+            for(int i = 0; i<3; i++){
+                temp=a[i];
+                a[i]=b[i];
+                b[i]=temp;
+            }
+            tag=1;
+        }
+        result[2]=a[2]-b[2];
+        if(result[2]<0){
+            result[2]=a[2]+29-b[2];
+            a[1]-=1;
+        }
+        result[1]=a[1]-b[1];
+        if(result[1]<0){
+            result[1]=a[1]+17-b[1];
+            a[0]-=1;
+        }
+        result[0]=a[0]-b[0];
+        if(tag==1)
+            System.out.print("-"+result[0]+"."+result[1]+"."+result[2]);
+        else
+            System.out.print(+result[0]+"."+result[1]+"."+result[2]);
+    }
+}

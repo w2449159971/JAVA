@@ -1,0 +1,72 @@
+一、泛型
+1.诞生的意义
+2.泛型的使用语法
+
+
+泛型为什么出现
+       顺序表本身是一种抽象数据类型，保存的数据不只是int型，如果没有泛型的支持，我们必须为每一种要保存的类型定义一个顺序表类。
+       为了解决类似顺序表这样的结构，支持通用类型 
+为了解决这个问题
+第一阶段：1）Object是所有类的基类
+                2）多态：基类的引用可以指向任何子类的对象
+这种解决方案，无法在编译中快速找出一些问题
+前提： 错误越早发现越好
+    1.写代码的时候，IDEA用~提示报错
+    2.编译期间javac报错
+    3.运行时出错
+为了让错误尽可能在编译期间出现，引入了泛型
+    1.泛型类
+class ArrayList<类型变量形参Type Variable Paramter>{
+}
+class ArrayList<E>{
+     E[] array;
+     int size;
+} 
+使用泛型类       new ArrrayList<String>();
+
+--嵌套
+ArrayLisr<String> p = . . . ;
+ArrayList<>    q =  . . . ;  q 的元素类期望是ArrayList<String> <>
+ArrayList<ArrayList<String>> q；
+
+Set<Map.Entry<String.String>>
+-- 类型推导
+ArrayList<String> p = new ArrayLIst<>( ) ;
+
+--多类型参数
+Map<string,Integer>成绩；//并不要求每个都不一样
+
+ArrayList<Person>p = new ArrayList<>();
+p.add(new Person( ));
+String s = (String)p.get(0); //编译错误
+泛型只作用于编译期间 
+类的字节码和运行期间没有泛型
+
+ArrayList<String>list;
+ArrayList<Person>plist;
+二、包装类和自动装箱+自动装箱
+class ArrayList<E>{
+E[ ] array;                       --->Object[ ] array；
+int size; 
+}
+顺序表，里面是int，怎么办？
+class ArrayList{
+Object[ ] array;
+int size;
+}
+ArrayList<int>
+int i = 10;
+Interger ii = new Interger(i);
+ArrayList<Integer>
+
+基本数据类型
+float                      java.lang.Float
+double                  java.lang.Double
+int                        java.lang.Integer
+short                    java.lang.Short
+byte                     java.lang.Byte
+long                     java.lang.Long
+char                    java.lang.Character
+boolean               java.lang.Boolean
+
+

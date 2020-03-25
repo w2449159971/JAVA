@@ -1,0 +1,16 @@
+import java.util.Scanner;
+
+public class CamelNomenclature {
+        public static void main(String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            String string = scanner.nextLine();
+            String str[] = string.split("_");
+            System.out.print(str[0]);
+            for (int i = 1; i < str.length; i++) {
+                String chars = str[i];
+                char[] chars1 = chars.toCharArray();
+                chars1[0] -= 32;
+                System.out.print(chars1);
+            }
+        }
+    }

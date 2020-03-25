@@ -1,0 +1,61 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class test3 {
+    public static int eat(int []a){
+        int tableNum = a[0];
+        int peopleNum = a[1];
+        int [] tablePeopleNum = new int[a[0]];
+        for(int i = 0; i < a[0]; i++){
+            tablePeopleNum[i] = a[i+2];
+        }
+        Arrays.sort(tablePeopleNum);
+        int min = tablePeopleNum[0];
+        int max = tablePeopleNum[a[0]-1];
+
+        int [] everyPeopleNum = new int[a[1]];
+        everyPeopleNum[0] = a[2+a[0]];
+        int j = a[2+a[0]];
+        for(int i = 1; i < a[1]; i++){
+            everyPeopleNum[i] = a[j];
+            j = j+2;
+            if(everyPeopleNum[i] > max){
+                everyPeopleNum[i] = 10000;
+            }
+        }
+
+        int [] everyMoney = new int[a[1]];
+        everyMoney[0] = a[2+a[0]+1];
+        int k = a[2+a[0]+1];
+        for(int i = 1; i < a[1]; i++){
+            everyPeopleNum[i] = a[k];
+            k = k+2;
+        }
+
+        int [] Ave = new int[a[1]];
+        for(int i = 0; i < a[1]; i++){
+            Ave[i] = everyMoney[i]/everyPeopleNum[i];
+        }
+
+        int MAX = 0;
+        Arrays.sort(Ave);
+        for(int i = a[1]; i < a[0]; i--){
+            MAX = Ave[i] + MAX;
+        }
+        return MAX;
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("请输入数组用空格隔开");
+        String str = scanner.nextLine();
+        String [] Arrays = str.split(" ");
+        int [] a = new int[Arrays.length];
+        for(int i=0; i < a.length; i++){
+            a[i] = Integer.parseInt(Arrays[i]);
+//            System.out.println(a[i]);
+        }
+        System.out.println(eat(a));
+    }
+}

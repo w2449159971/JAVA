@@ -1,0 +1,67 @@
+public class Wu0519{
+   public static int max(int[] array){
+   int temp = 0；
+   for(int i=0;i<array.length;i++)
+   {
+   if(temp<array[i])
+   {
+   temp = array[i];
+   }
+   }
+   System.out.println(temp);
+   //推荐这里用foreach
+   /*int maxValue = Integer.MIN_VALUE;
+   for(int item : array){
+   if(int item > maxValue)
+   {
+   maxValue = item;
+   }
+   }
+   return maxValue;
+   */
+}
+   pubilc static int indexOf(int[] array,int key){
+    for(int i=0;i<array.length;i++){
+		if(array[i]==key)
+		{
+		  return 1;
+		}
+	}
+return -1;	
+}
+   public static double average(int[] scores){
+   int minValue = scores[0];
+   int max = scores[0];
+   int sum = scores[0];
+   for(int i=0;i < array.length; i++){
+        if(max<array[i]){
+             max = array[i];
+   }
+        if(min>array[i]){
+	         min = array[i];   
+   }
+   sum + = array[i]; 
+   }
+ return(double)(averageScore - max - min) / (array.length - 2);
+}   
+    public static int[] copyOf(int[],src, int newLength){
+	//newLength可能大于arc.length;
+	//newLength可能小于等于arc.length;
+	int[] dest = new int[newLength];
+	//利用默认值的特征，每个元素都是0；
+	int minLength = src.length < newLength ? src.length : newLength
+	}
+pubic static void main(String[]args)
+{
+     int[] array = {1,2,3,4,5,6,7}；
+	 
+	 int maxValue = max(array);
+	 System.out.println("最大值是："+maxValue）；
+	 
+	 int index = indexOf(array,7);
+	 System.out.println("7的下标是："+index）；
+	 
+	 int averageScore = average(array);
+	 System.out.println("平均分是："+averageScore）；
+}
+}

@@ -1,0 +1,45 @@
+头删
+Node popFront(Node head){
+return head.next
+}
+
+尾删
+1.找倒数第二个结点，lastLast
+2.lastLast.next = null
+3.释放原来的最后一个结点(GC)
+
+子问题：如何找倒数第二个结点
+while(cur.next.next!= null){
+}
+如果链表只有一个结点，视为头删即可
+
+把遍历的每个结点头插到一个新链表上
+1.什么是新链表(新链表一开始是空链表)
+ListNode newList = null;
+2.如何头插cur到新链表newList上
+cur.next = newList;
+newList = cur;
+
+逆置
+每次遍历一个结点，然后头插
+
+每次反向遍历一个结点，然后尾插
+
+依次遍历每个结点{
+if(结点的值cur.val == val)
+删除该结点，需要保留前驱结点prev
+prev.next = cur.next;
+}
+}
+Node cur = head;
+Node prev = null;
+while(cur!= null){
+prev = cur;
+cur = cur.next;
+}
+
+1.定义一个新链表(一开始为空) ListNode newList = nill;
+2.依次遍历原链表的每一个结点，如果cur.val!= val;把cur尾插到newList所代表的链表上
+
+
+

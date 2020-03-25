@@ -1,0 +1,284 @@
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+
+public class Banker {
+    //总资源
+    private int[] All;
+    //每个进程的最大资源
+    private int[][] max;
+    //每个进程需要的资源
+    private int[][] need;
+    //每个进程目前有的资源
+    private int[][] allocation;
+    //可获得的资源
+    private int[] available;
+    //进程数
+    private int processNum;
+    //安全性序列
+    private int[] safeList;
+    //资源种类
+    public static String[] source = new String[]{"A","B","C","D","E","F","E"};
+    public static int sourceNum;
+
+    public Banker() {
+        init();
+    }
+    /**
+     * 手动初始化
+     */
+    public void init() {
+        Scanner in = new Scanner(System.in);
+        System.out.println("输入进程数:");
+        processNum = in.nextInt();
+        System.out.println("输入资源数量:");
+        sourceNum = in.nextInt();
+        //对数组初始化
+        System.out.println("输入max:");
+        max = new int[processNum][sourceNum];
+        for (int i = 0; i < processNum; i++) {
+            for (int j = 0; j < sourceNum; j++) {
+                max[i][j] = in.nextInt();
+            }
+        }
+        System.out.println("输入allocation:");
+        allocation = new int[processNum][sourceNum];
+        for (int i = 0; i < processNum; i++) {
+            for (int j = 0; j < sourceNum; j++) {
+                allocation[i][j] = in.nextInt();
+            }
+        }
+        need = new int[processNum][sourceNum];
+        for (int i = 0; i < processNum; i++) {
+            for (int j = 0; j < sourceNum; j++) {
+                need[i][j] = max[i][j] - allocation[i][j];
+            }
+        }
+        System.out.println("输入All:");
+        All = new int[sourceNum];
+        for (int i = 0; i < sourceNum; i++) {
+            All[i] = in.nextInt();
+        }
+
+        for(int i = 0; i < processNum; i++) {
+            for (int j = 0; j <sourceNum; j++) {
+                All[j] = All[j] - allocation[i][j];
+            }
+        }
+        available = All;
+    }
+    /**
+     * 打印每个进程的相关信息
+     */
+    public void print() {
+        System.out.println("id     MAX     Need   Allocation ");
+//        System.out.println("　 A B C  A B C  A B C   ");
+        System.out.print("       ");
+        for(int j=0;j<3;j++) {
+            for (int i = 0; i < sourceNum; i++) {
+                System.out.print(source[i] + " ");
+            }
+            System.out.print('|');
+        }
+        System.out.println();
+        for (int i = 0; i < processNum; i++) {
+            System.out.print(i + "      ");
+            //打印i号进程最大资源数
+            for(int j=0;j<max[i].length;j++) {
+                System.out.print(max[i][j] + " ");
+            }
+            System.out.print('|');
+            //打印i号进程需要进程数
+            for(int j=0;j<need[i].length;j++) {
+                System.out.print(need[i][j] + " ");
+            }
+            System.out.print('|');
+            //打印i号进程目前获得进程数
+            for(int j=0;j<allocation[i].length;j++) {
+                System.out.print(allocation[i][j] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println("Available: "+Arrays.toString(available));
+    }
+
+    /**
+     * 进行试分配
+     * @param requestId   试分配的进程id
+     * @param inRequest   请求的资源数组
+     * @return
+     */
+    public boolean change(int requestId,int[] inRequest) {
+        int[] request = inRequest;
+        //1.判断request和need的大小
+        for (int i = 0; i < request.length; i++) {
+            if(request[i] > need[requestId][i]) {
+                System.out.println("请求的资源超过了所需要的最大值，请求失败");
+                return false;
+            }
+        }
+        //2.判断request和available的大小
+        for (int i = 0; i < request.length; i++) {
+            if( request[i] > available[i]) {
+                System.out.println("资源不足，请求失败");
+                return false;
+            }
+        }
+        //3.进行试分配
+        //need = need - request ;
+        //allocation = allocation + request;
+        //available = available - request;
+        for(int i=0;i<request.length;i++) {
+            need[requestId][i] = need[requestId][i] - request[i];
+            allocation[requestId][i] = allocation[requestId][i] + request[i];
+            available[i] = available[i] - request[i];
+        }
+
+        for(int i=0;i<request.length;i++){
+            if(need[requestId][i] != 0){
+                break;
+            }else{
+                available[i] = allocation[requestId][i] + available[i];
+                allocation[requestId][i] = need[requestId][i];
+            }
+        }
+        //进行安全性检查
+        boolean flag = checkSafe(available);
+        if(flag == true) {
+            return true;
+        } else {
+            //不能分配，需要将数据恢复到分配之前
+            System.out.println("分配失败");
+
+            for(int i=0;i<request.length;i++) {
+                need[requestId][i] = need[requestId][i] + request[i];
+                allocation[requestId][i] = allocation[requestId][i] - request[i];
+                available[i] = available[i] + request[i];
+        }
+            return false;
+        }
+    }
+
+    /**
+     * 银行家算法
+     * @param available  可获取资源数组
+     * @return
+     */
+    public boolean checkSafe(int[] available) {
+        int[] work = new int[available.length];
+        for (int i = 0; i < work.length; i++) {
+            work[i] = available[i];
+        }
+
+        int i=0,n=0;
+//        int j;
+        boolean[] finish = new boolean[processNum];
+        safeList = new int[processNum];
+
+        while(i<processNum) {
+            if(finish[i] == false && judge(i,need,work)) {
+//                System.out.println("进程"+i+"分配成功");
+                //加入到序列中
+                safeList[n++] = i;
+                System.out.print("进程"+i+": Work:"+Arrays.toString(work)+
+                        ":Need"+Arrays.toString(need[i])+" Allocation:"+ Arrays.toString(allocation[i]));
+                for(int m=0;m<work.length;m++) {
+                    work[m] = work[m] + allocation[i][m];
+                }
+                finish[i] = true;
+                System.out.print(" work+allocation:"+Arrays.toString(work) + " finish:"+finish[i]);
+                System.out.println();
+
+                //分配成功　从头重新开始
+                i = 0;
+            } else {
+                i++;
+            }
+        }
+        for(i = 0;i<finish.length;i++) {
+            if(finish[i] == false) {
+//                System.out.println(i+"失败");
+                return false;
+        }
+        }
+        System.out.println("安全性序列为:"+Arrays.toString(safeList));
+        return true;
+    }
+
+    /**
+     * T0时刻安全性检测
+     * @return
+     */
+    public boolean isSafe() {
+//     int[] request = new int[sourceNum];
+//     return change(0,request);
+        return checkSafe(available);
+     }
+     /**
+     * 安全性检测时比较当前进程的 need 和 work
+     * @param id    当前进程id
+     * @param need      当前进程所需资源
+     * @param work      当前系统可提供资源
+     */
+    private boolean judge(int id, int[][] need, int[] work) {
+        int j;
+        for (j = 0; j < work.length; j++) {
+            if(need[id][j] > work[j]){
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+    public static void main(String[] args) {
+//        Banker banker = new Banker(1);
+        Scanner in = new Scanner(System.in);
+        Banker banker = new Banker();
+        boolean flag = true;
+
+        banker.print();
+
+        while(flag) {
+            System.out.println("1.T0时刻安全性检测");
+            System.out.println("2.请求资源");
+            System.out.println("3.退出");
+            int choice = in.nextInt();
+            switch(choice) {
+                case 1:
+                    //T0时刻安全性检测
+                    boolean safe = banker.isSafe();
+                    if(safe) {
+                        System.out.println("T0时刻安全");
+                    } else {
+                        System.out.println("T0时刻不安全");
+                    }
+                    break;
+                case 2:
+                    while(true) {
+                        int requestId;
+                        int[] request = new int[sourceNum];
+                        System.out.println("输入需要请求的进程号id:");
+                        requestId = in.nextInt();
+                        System.out.println("输入需请求的各类资源数目:");
+                        for (int i = 0; i < sourceNum; i++) {
+                            System.out.println("请求" + source[i] + "资源的数目:");
+                            request[i] = in.nextInt();
+                        }
+                        //进行安全检查
+                        banker.change(requestId, request);
+                        banker.print();
+                        System.out.println("是否结束分配 1/0");
+                        int is = in.nextInt();
+                        if(is == 1) {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    break;
+                case 3:
+                    flag = false;
+                    break;
+            }
+        }

@@ -1,0 +1,13 @@
+public static int getLCA(int a, int b) {
+        while (a != b)	{
+            //谁大谁先走，走完比一下
+            // 不管是左孩子还是右孩子，算其父节点
+            // 都是除以2
+            if (a > b) {
+                a = a / 2;
+            }		else		{
+                b = b / 2;
+            }
+        }
+        return a;
+        }
