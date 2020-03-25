@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="48c92cc3-fc81-4178-a2a1-5bcbbef9fed1" name="Default Changelist" comment="">
-      <change afterPath="F:/JAVA/everyting-like" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="F:/JAVA/everyting-like" beforeDir="false" afterPath="F:/JAVA/everyting-like" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -143,7 +143,7 @@
     </option>
   </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\好不容易\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -158,6 +158,7 @@
       <workItem from="1585031689857" duration="18000" />
       <workItem from="1585033059204" duration="3018000" />
       <workItem from="1585127910990" duration="3193000" />
+      <workItem from="1585131171947" duration="1949000" />
     </task>
     <task id="LOCAL-00001" summary="我的项目源码">
       <created>1585129182718</created>
@@ -180,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585130799349</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="我的项目源码">
+      <created>1585131214345</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1585131214345</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,10 +208,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="180" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1585033229796" />
-    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1585130798211">
+    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1585131211575">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585130798211" />
+    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585131211575" />
     <state x="322" y="158" key="EnvironmentVariablesDialog" timestamp="1585031619173">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -232,14 +240,14 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="220" height="477" key="HiddenNamespacesPopup/0.0.1366.768@0.0.1366.768" timestamp="1585031719035" />
-    <state x="121" y="58" key="SettingsEditor" timestamp="1585128740095">
+    <state x="121" y="58" key="SettingsEditor" timestamp="1585132524719">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="121" y="58" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1585128740095" />
-    <state x="275" y="120" key="Vcs.Push.Dialog.v2" timestamp="1585130866379">
+    <state x="121" y="58" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1585132524719" />
+    <state x="275" y="120" key="Vcs.Push.Dialog.v2" timestamp="1585131294233">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="120" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585130866379" />
+    <state x="275" y="120" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585131294233" />
     <state x="399" y="32" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1585033255354">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
