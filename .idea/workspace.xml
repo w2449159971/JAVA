@@ -159,6 +159,7 @@
       <workItem from="1585033059204" duration="3018000" />
       <workItem from="1585127910990" duration="3193000" />
       <workItem from="1585131171947" duration="1949000" />
+      <workItem from="1585136991677" duration="484000" />
     </task>
     <task id="LOCAL-00001" summary="我的项目源码">
       <created>1585129182718</created>
@@ -188,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1585131214345</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="我的项目源码">
+      <created>1585137054568</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1585137054568</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,18 +208,22 @@
     <option name="LAST_COMMIT_MESSAGE" value="我的项目源码" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="45" key="#Notifications" timestamp="1585130835874">
+    <state x="275" y="45" key="#Notifications" timestamp="1585137098813">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="45" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1585130835874" />
+    <state x="275" y="45" key="#Notifications/0.0.1366.768@0.0.1366.768" timestamp="1585137098813" />
     <state x="180" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585033229796">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="180" y="56" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768@0.0.1366.768" timestamp="1585033229796" />
-    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1585131211575">
+    <state x="295" y="0" key="CommitChangelistDialog2" timestamp="1585137052558">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585131211575" />
+    <state x="295" y="0" key="CommitChangelistDialog2/0.0.1366.768@0.0.1366.768" timestamp="1585137052558" />
+    <state x="129" y="59" key="DiffContextDialog" timestamp="1585137046084">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="129" y="59" key="DiffContextDialog/0.0.1366.768@0.0.1366.768" timestamp="1585137046084" />
     <state x="322" y="158" key="EnvironmentVariablesDialog" timestamp="1585031619173">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
@@ -244,10 +256,10 @@
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="121" y="58" key="SettingsEditor/0.0.1366.768@0.0.1366.768" timestamp="1585132524719" />
-    <state x="275" y="120" key="Vcs.Push.Dialog.v2" timestamp="1585131294233">
+    <state x="275" y="120" key="Vcs.Push.Dialog.v2" timestamp="1585137065625">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
-    <state x="275" y="120" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585131294233" />
+    <state x="275" y="120" key="Vcs.Push.Dialog.v2/0.0.1366.768@0.0.1366.768" timestamp="1585137065625" />
     <state x="399" y="32" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1585033255354">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
