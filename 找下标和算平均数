@@ -44,6 +44,7 @@ return -1;
    }
  return(double)(averageScore - max - min) / (array.length - 2);
 }   
+
     public static int[] copyOf(int[],src, int newLength){
 	//newLength可能大于arc.length;
 	//newLength可能小于等于arc.length;
