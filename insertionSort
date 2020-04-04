@@ -1,0 +1,18 @@
+public static int[] insertionSort(int[] array){
+        if(array.length == 0){
+            return array;
+        }
+        int len = array.length;
+        int current;
+        int preIndex;
+        for(int i = 0; i < len-1; i++){
+            preIndex = i;
+            current = array[preIndex+1];
+            while (preIndex >= 0 && array[preIndex] > current ){
+                array[preIndex+1] = array[preIndex];
+                preIndex--;
+            }
+            array[preIndex+1] = current;
+        }
+        return array;
+    }
