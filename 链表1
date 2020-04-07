@@ -5,6 +5,8 @@ int[] array = new int[10];      //顺序表储存的是int类型的元素
                                 //理论上支持保存任意类型的数据
 //增删改查
 
+
+
 //将element插入到index所在的下标出
 //要求，对index做合法性校验
 public void insert(int index,int element){
