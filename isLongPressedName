@@ -1,0 +1,29 @@
+public class IsLongPressedName {
+    public static boolean isLongPressedName(String name, String typed) {
+        if(typed.length() < name.length()){
+            return false;
+        }
+        char[] Name = name.toCharArray();
+        char[] Typed = typed.toCharArray();
+
+        int NameIndex = 0;
+        int TypedIndex = 0;
+
+        while (NameIndex < name.length() && TypedIndex < typed.length()){
+            if(Name[NameIndex] == Typed[TypedIndex]){
+                NameIndex++;
+                TypedIndex++;
+            }else if (TypedIndex > 0 && Typed[TypedIndex] == Typed[TypedIndex - 1]){
+                TypedIndex++;
+            }else{
+                break;
+            }
+        }
+        return NameIndex == name.length();
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isLongPressedName("abcd","aabc"));
+    }
+}
+
