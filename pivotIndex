@@ -1,0 +1,22 @@
+public class PrivoIndex {
+    public static int pivotIndex(int[] nums) {
+        int length = nums.length;
+        int sum = 0, leftSum = 0;
+
+        // 获取数组元素总和
+        for (int num: nums) sum += num;
+
+        // 遍历自变量
+        for (int i = 0; i < length; i++){
+            if (leftSum*2 == sum - nums[i]) return i;
+            leftSum += nums[i];
+        }
+        return -1;
+    }
+
+
+    public static void main(String[] args) {
+        int[] array = {1,3,4,2,2};
+        System.out.println(pivotIndex(array));
+    }
+}
