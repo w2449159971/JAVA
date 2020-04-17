@@ -1,0 +1,39 @@
+package 桥接模式;
+
+
+public class Client {
+
+    public static void main(String[] args) {
+
+        VideoFile videoFile;
+
+        OperatingSystemVersion osType1 = new WindowsVersion();
+
+        videoFile = new AVIFile();
+
+        osType1.setVideo(videoFile);
+
+        osType1.play("MPEG");
+
+
+
+        OperatingSystemVersion osType2 = new LinuxVersion();
+
+        videoFile = new AVIFile();
+
+        osType2.setVideo(videoFile);
+
+        osType2.play("RMVB");
+
+
+        OperatingSystemVersion osType3 = new UnixVersion();
+
+        videoFile = new AVIFile();
+
+        osType3.setVideo(videoFile);
+
+        osType3.play("AVI");
+
+    }
+
+}
