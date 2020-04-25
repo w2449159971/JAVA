@@ -1,0 +1,34 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class OnlyOnce {
+    public static void onlyOnce(int[] array, int num){
+        Arrays.sort(array);
+        if(array[0] != array[1]){
+            System.out.print(array[0]);
+            System.out.print(" ");
+        }
+
+        for(int i = 1; i < array.length-1; i++){
+            if(array[i] != array[i+1] && array[i] != array[i-1]){
+                System.out.print(array[i]);
+                System.out.print(" ");
+            }
+        }
+
+        if(array[array.length-1] != array[array.length-2]){
+            System.out.println(array[array.length-1]);
+        }
+
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        int[] array = new int[num];
+        for(int i= 0 ; i < num; i ++){
+            array[i] = scanner.nextInt();
+        }
+        onlyOnce(array,num);
+    }
+}
