@@ -1,0 +1,26 @@
+public class binarySearch {
+    public static int binary(int[] array, int k){
+        int i = 0;
+        int j = array.length - 1;
+
+        while ( j >= i){
+            int mid = (j - i)/2;
+            if(k>array[mid]){
+                i = mid+1;
+            }
+            if(k<array[mid]){
+                j = mid-1;
+            }
+            if(array[mid] == k){
+                return mid;
+            }
+        }
+        return -1;
+    }
+
+    public static void main(String[] args) {
+        int[] array = {2,5,4,6,1,7};
+        int k = 0;
+        System.out.println(binary(array,k));
+    }
+}
