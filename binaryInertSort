@@ -1,0 +1,46 @@
+public class binaryInertSort {
+    public static void BinarySelectSort(int[] array) {
+        if (array.length == 0) {
+            return;
+        }
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < array[i - 1]) {
+                int tmp = array[i];
+                int left = 0;
+                int right = i - 1;
+                int mid = 0;
+                while (left <= right) {
+                    mid = (right + left) / 2;
+                    if (tmp > array[mid]) {
+                        left = mid + 1;
+                    }
+                    if (tmp < array[mid]) {
+                        right = mid - 1;
+                    }
+                    if (tmp == array[mid]) {
+                        left = mid;
+                        break;
+                    }
+                }
+                for(int j = i-1;j >= left;j--){
+                    array[j+1]=array[j];
+                }
+                //用这种方式其实一直在传递array[mid]这个元素
+//                for(int j = left; j < i ; j++){
+//                    array[j + 1] = array[j];
+//                }
+                
+                array[left] = tmp;
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        int[] array = {6,4,1,9,3,1,2,8};
+        BinarySelectSort(array);
+        for(int k:array){
+            System.out.print(k);
+            System.out.print(",");
+        }
+    }
+}
