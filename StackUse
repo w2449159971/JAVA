@@ -1,0 +1,57 @@
+import java.util.Stack;
+
+public class StackUse {
+    public static void stack(){
+        Stack stack = new Stack<>();
+        System.out.println(stack.empty());
+        stack.push(new Integer(1));
+        stack.push("b");
+        stack.push("c");
+        System.out.println(stack.peek());
+    }
+
+    public static void main(String[] args) {
+        stack();
+    }
+}
+
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Scanner;
+
+public class QueueUse {
+    public static void main(String[] args) {
+        Queue queue = new LinkedList<>();
+        Scanner scanner = new Scanner(System.in);
+        String string = scanner.nextLine();
+        String[] s2 = string.split(" ");
+        for(int i = 0; i < s2.length; i++){
+            queue.add(s2[i]);
+        }
+        System.out.println(queue);
+        System.out.println(queue.peek());
+        System.out.println(queue.remove());
+    }
+}
+
+import java.util.Stack;
+
+public class QueueWithStack {
+    Stack<Integer> stack1 = new Stack<Integer>();
+    Stack<Integer> stack2 = new Stack<Integer>();
+    public void push(int node) {
+        stack1.push(node);
+    }
+    public int pop()
+    {
+        while(!stack2.isEmpty())
+        {
+            return stack2.pop();
+        }
+        while(!stack1.isEmpty())
+        {
+            stack2.push(stack1.pop());
+        }
+        return stack2.pop();
+    }
+}
