@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class replaceN {
+    public static void replace(String s){
+        String[] array = s.split("");
+        for(int k = 0; k < array.length; k++){
+            if(array[k].equals("0")) array[k] = "zero";
+            if(array[k].equals("1")) array[k] = "one";
+            if(array[k].equals("2")) array[k] = "two";
+            if(array[k].equals("3")) array[k] = "three";
+            if(array[k].equals("4")) array[k] = "four";
+            if(array[k].equals("5")) array[k] = "five";
+            if(array[k].equals("6")) array[k] = "six";
+            if(array[k].equals("7")) array[k] = "seven";
+            if(array[k].equals("8")) array[k] = "eight";
+            if(array[k].equals("9")) array[k] = "nine";
+        }
+        for(String i:array){
+            System.out.print(i);
+            System.out.print(" ");
+        }
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        replace(s);
+
+    }
+}
