@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class Test1 {
+    public static void test(int len, int Num,int[] arrayS, int[] arrayN){
+        int[] CountN = new int[Num];
+        for(int j = 0; j < Num; j ++){
+            for(int i = 0; i < len; i++){
+                if(arrayS[i] >= arrayN[j]){
+                    CountN[j]++;
+                    arrayS[i]--;
+                }
+            }
+        }
+        for(int k = 0; k < Num; k++){
+            System.out.println(CountN[k]);
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int len = scanner.nextInt();
+        int Num = scanner.nextInt();
+        int[] arrayS = new int[len];
+        int[] arrayN = new int[Num];
+        for(int i = 0; i < len; i++){
+            arrayS[i] = scanner.nextInt();
+        }
+        for(int j = 0; j < Num; j++){
+            arrayN[j] = scanner.nextInt();
+        }
+        test(len,Num,arrayS,arrayN);
+    }
+}
