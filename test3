@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.Scanner;
 
 public class test3 {
+
     public static int eat(int []a){
         int tableNum = a[0];
         int peopleNum = a[1];
@@ -56,6 +57,7 @@ public class test3 {
             a[i] = Integer.parseInt(Arrays[i]);
 //            System.out.println(a[i]);
         }
+
         System.out.println(eat(a));
     }
 }
