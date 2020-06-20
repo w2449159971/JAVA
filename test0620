@@ -1,0 +1,70 @@
+class Node{
+    public int value;
+    public Node next = null;
+    public Node(int value){
+        this.value = value;
+    }
+}
+public class test0620{
+
+    //打印链表
+    public static void display(Node head){
+        for(Node cur = head; cur != null; cur = cur.next){
+            System.out.print(cur.value);
+        }
+    }
+
+    //头插节点
+    public static Node frontNode(Node head, int value){
+        Node node = new Node(value);
+        node.next= head;
+        return node;
+    }
+
+    //尾插结点
+    public static Node pushBack(Node head, int value){
+        Node node = new Node(value);
+        if(head == null){
+            //当前加入的结点作为头结点
+            node.next = head;
+            return node;
+        }else{
+            Node last = getLast(head);
+            last.next = node;
+            return head;
+        }
+    }
+
+    //得到最后一个结点
+    public static Node getLast(Node head){
+        Node cur = head;
+        while (cur.next!=null){
+            cur = cur.next;
+        }
+        return cur;
+    }
+
+    //字符串反转
+    public static String reserve(String s){
+        String s1 = "";
+        for(int k = s.length()-1; k >= 0; k--){
+            s1 = s1 + s.charAt(k);
+        }
+        return s1;
+    }
+
+    public static void main(String[] args){
+//        String a ="abcde";
+//        //instanceof的用法
+//        Boolean b = a instanceof String;//String类型自动装箱
+//        System.out.println(b);
+//        System.out.println(reserve(a));
+
+        Node head = null;
+        head = frontNode(head,1);
+        head = frontNode(head,2);
+        head = frontNode(head,3);
+        display(head);
+
+    }
+}
