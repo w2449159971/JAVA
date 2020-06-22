@@ -1,4 +1,5 @@
 import java.util.Scanner;
+
 public class HowManyBottle {
     public static int BottleNumber(int k){
         int count = 0;
