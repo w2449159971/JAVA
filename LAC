@@ -1,3 +1,4 @@
+public class LAC{
 public static int getLCA(int a, int b) {
         while (a != b)	{
             //谁大谁先走，走完比一下
@@ -11,3 +12,5 @@ public static int getLCA(int a, int b) {
         }
         return a;
         }
+
+}
