@@ -16,7 +16,6 @@ public class Rabbit {
         }
         else
             return rabbit(month - 2) + rabbit(month - 1);
-
     }
 }
 
