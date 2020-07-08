@@ -14,7 +14,7 @@ public class searchInsert {
                 j = i + 1;
             }
         }
-        
+  
         return j;
     }
     
