@@ -1,0 +1,27 @@
+import java.util.Scanner;
+
+public class Test0717 {
+
+    public static int Num(int num){
+        if(num < 1){
+            return 0;
+        }
+        int count = 0;
+        while (num != 1){
+            if(num%2 == 0){
+                num = num/2;
+                count++;
+            }else {
+                num = num/2+1;
+                count = count+2;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int num = scanner.nextInt();
+        System.out.println(Num(num));
+    }
+}
