@@ -1,0 +1,15 @@
+import java.lang.reflect.Array;
+import java.util.Scanner;
+
+public class Test0630 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int Money = scanner.nextInt();
+//        String s = scanner.nextLine();
+        int[] Shopping = null;
+        for(int k = 0; k < Shopping.length; k++){
+            Shopping[k] = scanner.nextInt();
+        }
+    }
+}
