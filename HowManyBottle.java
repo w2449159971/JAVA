@@ -18,6 +18,7 @@ public class HowManyBottle {
         }
         return count;
     }
+    
     public static void main(String[] args) {
         Scanner k = new Scanner(System.in);
         while(k.hasNext()){
@@ -27,4 +28,5 @@ public class HowManyBottle {
     }
         }
     }
+    
 }
