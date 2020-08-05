@@ -1,0 +1,36 @@
+import java.lang.reflect.Array;
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test0803 {
+    public static void test(String s) {
+        char[] array = new char[s.length()];
+        for (int i = 0; i < s.length(); i++) {
+            array[i] = s.charAt(i);
+//            System.out.println(array[i]);
+        }
+        int key = 0;
+        int count = 0;
+        while (key < s.length()) {
+            for (int j = 0; j < s.length() - 1; j++) {
+                if(array[key] == array[j]){
+                    count++;
+                }
+            }
+            if(count == 1){
+                System.out.println(array[key]);
+                break;
+            }else {
+                System.out.println(-1);
+            }
+        }
+    }
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        String s1 = scanner.nextLine();
+        String s2 = scanner.nextLine();
+        test(s1);
+        test(s2);
+    }
+}
