@@ -5,6 +5,7 @@ class Node{
         this.value = value;
     }
 }
+
 public class DeleteValue{
     //删除值是val的结点
     public static Node deleteValue(int val, Node head){
