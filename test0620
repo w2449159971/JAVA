@@ -66,5 +66,6 @@ public class test0620{
         head = frontNode(head,3);
         display(head);
 
+
     }
 }
