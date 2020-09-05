@@ -87,6 +87,7 @@ class FileLogFactory implements LogFactory {
 
 }
 
+
 public class Client {
 
     public static void main(String args[]) {
